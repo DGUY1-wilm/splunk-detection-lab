@@ -28,7 +28,7 @@ The Atomic Red Team T1053.005 tests were reviewed but the evidence here comes fr
 
 Sysmon recorded `schtasks.exe` with the full `/create` command line, launched from PowerShell by the local user:
 
-![Sysmon schtasks create](01-sysmon-schtasks-create.png)
+![Sysmon schtasks create](../../screenshots/Detection%25203/01-sysmon-schtasks-create.png)
 
 ## Detection logic
 
