@@ -168,7 +168,7 @@ index=wineventlog EventCode=4720
 
 The README for that detection states plainly that it is a manual simulation.
 
-![Atomic tests target AD](.../.../screenshots/Detection%25206/01-atomic-ad-prereq-note.png)
+![Atomic tests target AD](../../screenshots/Detection%25206/01-atomic-ad-prereq-note.png)
 
 ## 14. Timestamps differ by 4 hours
 
