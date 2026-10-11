@@ -36,7 +36,6 @@ The threshold search found one 5-minute bucket with a count of 6, matching the s
 ![Threshold search](03-threshold-search-4625.png)
 
 <!-- TO CAPTURE: the raw 4625 events showing the "labfake" account name (see Search B in detection.spl) -->
-![Raw 4625 events](04-raw-4625-events.png)
 
 The search scanned 11 failed-logon events in total, and 6 fell in the burst bucket, matching the six simulated attempts. The other 5 fell outside that bucket.
 
@@ -68,8 +67,6 @@ Mistyped passwords, expired credentials, and services or scheduled tasks using s
 Settings are in [`../ALERTS.md`](../ALERTS.md).
 
 <!-- TO CAPTURE -->
-![Saved alert](05-saved-alert.png)
-![Alert triggered](06-alert-triggered.png)
 
 ## Cleanup
 
