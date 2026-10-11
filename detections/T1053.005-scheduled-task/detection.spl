@@ -1,0 +1,29 @@
+```comment
+T1053.005 - Scheduled Task/Job: Scheduled Task
+```
+
+```comment
+SEARCH A (validated): Sysmon process creation, schtasks.exe creating a task.
+Observed in lab: schtasks /create /tn LabTask /tr notepad.exe /sc daily /st 09:00, launched from powershell.exe.
+```
+index=sysmon EventCode=1 Image="*\\schtasks.exe" CommandLine="*/create*"
+| table _time host User ParentImage CommandLine
+
+
+```comment
+SEARCH A-RISK (UNTESTED): flags tasks that run as SYSTEM or fire at logon/startup, which are more suspicious.
+```
+index=sysmon EventCode=1 Image="*\\schtasks.exe" CommandLine="*/create*"
+| eval cl=lower(CommandLine)
+| eval runs_as_system=if(like(cl,"%/ru system%"),"yes","no")
+| eval trigger_logon_or_startup=if(like(cl,"%/sc onlogon%") OR like(cl,"%/sc onstart%"),"yes","no")
+| table _time host User ParentImage CommandLine runs_as_system trigger_logon_or_startup
+
+
+```comment
+SEARCH B (UNTESTED / NOT CAPTURED): Security 4698, a scheduled task was created.
+Only present if "Other Object Access Events" auditing is enabled:
+  auditpol /set /subcategory:"Other Object Access Events" /success:enable
+```
+index=wineventlog EventCode=4698
+| table _time host Message

@@ -1,0 +1,29 @@
+title: PowerShell Launched with Encoded Command
+id: 0c5d7a92-81e4-4b6f-b3a8-5d1e9f2c7b02
+status: experimental
+description: Detects powershell.exe or pwsh.exe started with an encoded-command flag. Written from lab testing of a base64-encoded command.
+references:
+    - https://attack.mitre.org/techniques/T1059/001/
+author: Daniel Guy
+date: 2026-10-11
+tags:
+    - attack.execution
+    - attack.t1059.001
+logsource:
+    category: process_creation
+    product: windows
+detection:
+    selection_img:
+        Image|endswith:
+            - '\powershell.exe'
+            - '\pwsh.exe'
+    selection_flag:
+        CommandLine|contains:
+            - ' -e '
+            - ' -ec '
+            - ' -en'
+    condition: selection_img and selection_flag
+falsepositives:
+    - Management and deployment tools that pass encoded commands
+    - Some installers and software distribution agents
+level: medium

@@ -1,0 +1,23 @@
+title: Registry Run Key Modified
+id: b2e94c07-1d63-4a8f-9c52-6f0d3a7e8b06
+status: experimental
+description: DRAFT, untested. Detects a value being set under a Run or RunOnce registry key, a common persistence method.
+references:
+    - https://attack.mitre.org/techniques/T1547/001/
+author: Daniel Guy
+date: 2026-10-11
+tags:
+    - attack.persistence
+    - attack.t1547.001
+logsource:
+    category: registry_set
+    product: windows
+detection:
+    selection:
+        TargetObject|contains:
+            - '\CurrentVersion\Run\'
+            - '\CurrentVersion\RunOnce\'
+    condition: selection
+falsepositives:
+    - Legitimate software installers registering startup entries
+level: medium

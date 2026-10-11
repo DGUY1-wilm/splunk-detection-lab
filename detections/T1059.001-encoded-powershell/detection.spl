@@ -1,0 +1,26 @@
+```comment
+T1059.001 - PowerShell with an encoded command
+```
+
+```comment
+SEARCH A (validated): Sysmon process creation, powershell.exe launched with an encoded-command flag.
+Observed in lab: "-encodedcommand dwBoAG8AYQBtAGkA..." launched from powershell.exe by the local user.
+```
+index=sysmon EventCode=1 Image="*\\powershell.exe" (CommandLine="*-enc*" OR CommandLine="*-EncodedCommand*")
+| table _time host User ParentImage CommandLine
+
+
+```comment
+SEARCH B (validated): PowerShell script block logging, EventCode 4104. Shows the DECODED content.
+Add a keyword (here "whoami") to narrow to your test, or remove it to review all script blocks.
+```
+index=wineventlog source="*PowerShell/Operational" EventCode=4104 "whoami"
+| table _time host Message
+
+
+```comment
+SEARCH A-BROAD (UNTESTED): also catches pwsh.exe and abbreviated flags (-e, -ec, -en...).
+Expect more noise; review before alerting on it.
+```
+index=sysmon EventCode=1 (Image="*\\powershell.exe" OR Image="*\\pwsh.exe") (CommandLine="* -e *" OR CommandLine="* -ec *" OR CommandLine="* -en*")
+| table _time host User ParentImage CommandLine

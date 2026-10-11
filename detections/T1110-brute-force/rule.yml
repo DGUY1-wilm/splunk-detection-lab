@@ -1,0 +1,40 @@
+title: Failed Logon Event
+name: failed_logon_4625
+id: 4a8c2e71-6d95-4f03-a1b7-3e9d5c8f0a04
+status: experimental
+description: Base rule matching Windows failed logon events. Used by the correlation rule below.
+author: Daniel Guy
+date: 2026-10-11
+logsource:
+    product: windows
+    service: security
+detection:
+    selection:
+        EventID: 4625
+    condition: selection
+level: informational
+---
+title: Burst of Failed Logons from One Host (Password Guessing)
+id: 7d1f4b36-2c80-4e59-9f6a-8b3a1c5e7d05
+status: experimental
+description: Five or more failed logons on one host within 5 minutes. Written from lab testing of a manual password-guessing simulation.
+references:
+    - https://attack.mitre.org/techniques/T1110/001/
+author: Daniel Guy
+date: 2026-10-11
+tags:
+    - attack.credential_access
+    - attack.t1110.001
+correlation:
+    type: event_count
+    rules:
+        - failed_logon_4625
+    group-by:
+        - Computer
+    timespan: 5m
+    condition:
+        gte: 5
+falsepositives:
+    - Users mistyping passwords, expired or changed credentials
+    - Misconfigured services or scheduled tasks using stale passwords
+level: medium

@@ -1,0 +1,30 @@
+title: Local Account Created via net.exe or net1.exe
+id: 6b0f1f5e-3c2a-4d8e-9a71-2f4c8d5e1a01
+status: experimental
+description: Detects creation of a local user account through net.exe or net1.exe (net user <name> /add). Written from lab testing of Atomic Red Team T1136.001.
+references:
+    - https://attack.mitre.org/techniques/T1136/001/
+author: Daniel Guy
+date: 2026-10-11
+tags:
+    - attack.persistence
+    - attack.t1136.001
+logsource:
+    category: process_creation
+    product: windows
+detection:
+    selection_img:
+        Image|endswith:
+            - '\net.exe'
+            - '\net1.exe'
+    selection_cmd:
+        CommandLine|contains|all:
+            - ' user '
+            - ' /add'
+    filter_localgroup:
+        CommandLine|contains: 'localgroup'
+    condition: selection_img and selection_cmd and not filter_localgroup
+falsepositives:
+    - Administrators creating local accounts as part of approved changes
+    - Provisioning or imaging scripts
+level: medium

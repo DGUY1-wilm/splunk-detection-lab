@@ -1,0 +1,38 @@
+```comment
+T1136.001 - Create Account: Local Account
+Index names: sysmon, wineventlog. Run over a short window (e.g. Last 15 minutes) when saving as an alert.
+```
+
+```comment
+SEARCH A (validated): Sysmon process creation, net.exe / net1.exe adding a user.
+Known false positive observed in lab: the forwarder install ran
+  net localgroup "Performance Monitor Users" "NT SERVICE\SplunkForwarder" /add
+which matched because "Users" contains "user".
+```
+index=sysmon EventCode=1 (Image="*\\net.exe" OR Image="*\\net1.exe") CommandLine="*user*/add*"
+| table _time host User ParentImage CommandLine
+
+
+```comment
+SEARCH A-TUNED (UNTESTED): excludes localgroup operations.
+```
+index=sysmon EventCode=1 (Image="*\\net.exe" OR Image="*\\net1.exe") CommandLine="*user*/add*" NOT CommandLine="*localgroup*"
+| table _time host User ParentImage CommandLine
+
+
+```comment
+SEARCH B (validated): Windows Security 4720, a user account was created.
+Names are two values of the multivalue Account_Name field (creator first, new account second).
+```
+index=wineventlog EventCode=4720
+| eval creator=mvindex(Account_Name,0), new_account=mvindex(Account_Name,1)
+| table _time host creator new_account
+
+
+```comment
+SEARCH B-TUNED (UNTESTED): ignore machine-account creators such as DESKTOP-KF26PU8$ (account made during OS setup).
+```
+index=wineventlog EventCode=4720
+| eval creator=mvindex(Account_Name,0), new_account=mvindex(Account_Name,1)
+| where NOT like(creator, "%$")
+| table _time host creator new_account

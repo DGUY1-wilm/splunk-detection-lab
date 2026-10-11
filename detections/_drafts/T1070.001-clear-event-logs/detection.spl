@@ -1,0 +1,14 @@
+```comment
+DRAFT, UNTESTED. T1070.001 - Clear Windows Event Logs
+Security 1102 = Security log cleared. System 104 would cover other logs if collected.
+Works even though the attacker wiped the local log, because the forwarder already shipped earlier events and logs the clear itself.
+```
+index=wineventlog EventCode=1102
+| table _time host Message
+
+
+```comment
+Process-based view (UNTESTED): wevtutil clearing a log.
+```
+index=sysmon EventCode=1 Image="*\\wevtutil.exe" (CommandLine="* cl *" OR CommandLine="*clear-log*")
+| table _time host User ParentImage CommandLine
