@@ -22,7 +22,6 @@ powershell.exe -EncodedCommand $e
 ```
 
 <!-- TO CAPTURE: the command above running in PowerShell -->
-![Attack executing](00-attack-run.png)
 
 This was a manual test, not an Atomic Red Team test. (The Atomic T1059.001 test 1 is a Mimikatz download, which was not run.)
 
@@ -68,8 +67,7 @@ Not observed in the lab beyond the test itself. In real environments, deployment
 Settings are in [`../ALERTS.md`](../ALERTS.md).
 
 <!-- TO CAPTURE -->
-![Saved alert](03-saved-alert.png)
-![Alert triggered](04-alert-triggered.png)
+
 
 ## Cleanup
 
