@@ -29,7 +29,6 @@ Problems hit while building this lab, written as symptom, cause, fix. Screenshot
 
 **Fix:** Delete the VM and recreate it with **Skip Unattended Installation** checked, then run the normal interactive installer. Install Guest Additions manually afterward.
 
-![Unattended install failure](troubleshooting/unattended-install-failure.png)
 
 ## 2. Installer window cut off
 
@@ -71,7 +70,6 @@ sudo /opt/splunk/bin/splunk enable boot-start -user splunk
 
 Spell the flag `--accept-license`. A mistyped `--accept-licence` printed `Bad Option` in the startup output.
 
-![Splunk root warning](troubleshooting/splunk-root-warning.png)
 
 ## 6. Garbled paste in the terminal
 
@@ -120,9 +118,6 @@ After the change, Sysmon events began arriving (1,584 events across 12 EventCode
 
 Related note: Sysmon's own log existing locally (`Get-WinEvent -ListLog "*Sysmon*"` showed events) was what proved the problem was on the forwarder side, not in Sysmon.
 
-![Forwarder service account](troubleshooting/forwarder-service-account.png)
-
-![Only wineventlog data, no sysmon](troubleshooting/wineventlog-only-no-sysmon.png)
 
 ## 10. Windows host appears under an unexpected name
 
@@ -132,7 +127,6 @@ Related note: Sysmon's own log existing locally (`Get-WinEvent -ListLog "*Sysmon
 
 **Fix:** Find the real host name with `index=_internal | stats count by host`, and use it (or filter by index) in searches.
 
-![Hosts reporting to Splunk](troubleshooting/internal-hosts.png)
 
 ## 11. Blank account-name fields in 4720 events
 
@@ -148,7 +142,6 @@ index=wineventlog EventCode=4720
 | table _time host creator new_account
 ```
 
-![Blank fields before the fix](troubleshooting/fields-blank-before-fix.png)
 
 ## 12. Typos when typing commands by hand
 
