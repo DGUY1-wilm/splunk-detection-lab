@@ -31,11 +31,11 @@ Accounts created during testing included `T1136.001_CMD`, `T1136.001_PowerShell`
 
 **Process creation (Sysmon EID 1).** `cmd.exe` launches `net.exe`, which launches `net1.exe`, both carrying the `/add` command line:
 
-![Sysmon net user /add](../../screenshots/Detection%25202-sysmon-net-user-add.png)
+![Sysmon net user /add](../../screenshots/Detection%25201/02-sysmon-net-user-add.png)
 
 **Account created (Security 4720).** The new accounts and who created them:
 
-![Security 4720](../../screenshots/Detection%25203-security-4720-account-created.png)
+![Security 4720](../../screenshots/Detection%25201/03-security-4720-account-created.png)
 
 ## Detection logic
 
