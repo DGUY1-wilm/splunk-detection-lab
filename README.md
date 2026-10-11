@@ -87,6 +87,15 @@ Follow [`setup/README.md`](setup/README.md). Expect roughly two to three weekend
 
 All attack simulations ran in an isolated lab on virtual machines I own, on a host-only network. Nothing here should be run against systems you do not own or have written permission to test.
 
+## Status and roadmap
+
+- [x] Log pipeline working (Sysmon, Security, PowerShell into Splunk)
+- [x] 4 detections validated with evidence
+- [ ] Save scheduled alerts and capture them firing (do this inside the 60-day trial window)
+- [ ] Build and test the dashboard
+- [ ] Validate the 2 draft detections
+- [ ] Add more detections (LOLBins, credential access, network-based)
+
 
 ## Author
 
