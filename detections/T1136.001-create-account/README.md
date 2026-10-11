@@ -23,7 +23,7 @@ Invoke-AtomicTest T1136.001
 
 Accounts created during testing included `T1136.001_CMD`, `T1136.001_PowerShell`, and `T1136.001_Admin`.
 
-![Atomic test details](screenshots/Detection%25201/01-atomic-test-details.png)
+![Atomic test details](../../screenshots/Detection%25201/01-atomic-test-details.png)
 
 <!-- TO CAPTURE: the attack actually running in PowerShell -->
 
