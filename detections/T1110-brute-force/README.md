@@ -16,7 +16,7 @@ Repeated failed logons in a short time often mean someone is guessing passwords.
 
 `Invoke-AtomicTest T1110` fails because T1110 is a parent technique with no atomics of its own. The T1110.001 atomics exist, but they brute force **Active Directory domain accounts** (over SMB against `%logonserver%`, and over LDAP against a domain controller). This lab VM is a standalone workgroup machine with no domain, so those tests do not apply.
 
-![Atomic tests target Active Directory](01-atomic-ad-prereq-note.png)
+![Atomic tests target Active Directory](../../screenshots/Detection%25206/01-atomic-ad-prereq-note.png)
 
 Instead, I ran a harmless manual simulation: six failed network logons against the local machine as a nonexistent user.
 
@@ -26,14 +26,14 @@ Instead, I ran a harmless manual simulation: six failed network logons against t
 
 Each attempt returned `System error 1326: The user name or password is incorrect`.
 
-![Failed logon simulation](02-failed-logon-simulation.png)
+![Failed logon simulation](../../screenshots/Detection%2520602-failed-logon-simulation.png)
 
 ## Evidence
 
 The threshold search found one 5-minute bucket with a count of 6, matching the six attempts:
 
 <!-- OPTIONAL RECAPTURE: set the time range to "Last 15 minutes" instead of "All time" so it matches how the alert will run. -->
-![Threshold search](03-threshold-search-4625.png)
+![Threshold search](../../screenshots/Detection%2520603-threshold-search-4625.png)
 
 <!-- TO CAPTURE: the raw 4625 events showing the "labfake" account name (see Search B in detection.spl) -->
 
