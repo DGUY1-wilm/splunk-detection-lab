@@ -26,7 +26,6 @@ Accounts created during testing included `T1136.001_CMD`, `T1136.001_PowerShell`
 ![Atomic test details](01-atomic-test-details.png)
 
 <!-- TO CAPTURE: the attack actually running in PowerShell -->
-![Attack executing](00-attack-run.png)
 
 ## Evidence
 
@@ -73,8 +72,6 @@ In production the biggest source of false positives would be help desk and provi
 Settings are in [`../ALERTS.md`](../ALERTS.md). Scheduled alerts require the trial license, so capture these before it ends.
 
 <!-- TO CAPTURE -->
-![Saved alert](04-saved-alert.png)
-![Alert triggered](05-alert-triggered.png)
 
 ## Cleanup
 
@@ -83,4 +80,4 @@ Invoke-AtomicTest T1136.001 -Cleanup
 ```
 
 <!-- TO CAPTURE -->
-![Cleanup](06-cleanup.png)
+
