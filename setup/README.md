@@ -121,7 +121,7 @@ index=sysmon | stats count by EventCode
 index=sysmon EventCode=1 Image="*whoami.exe" | table _time host User ParentImage CommandLine
 ```
 
-![Sysmon whoami events in Splunk](../../screenshots/More%2520Images/01-sysmon-whoami-logs-verified.png)
+![Sysmon whoami events in Splunk](../screenshots/More%2520Images/01-sysmon-whoami-logs-verified.png)
 
 
 Snapshot both VMs as `logging-working`.
