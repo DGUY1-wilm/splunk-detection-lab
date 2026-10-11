@@ -1,6 +1,6 @@
 # Troubleshooting log
 
-Problems hit while building this lab, written as symptom, cause, fix. Screenshots are optional and live in [`troubleshooting/`](troubleshooting/).
+Problems hit while building this lab, written as symptom, cause, fix.
 
 | # | Area | Problem |
 |---|---|---|
