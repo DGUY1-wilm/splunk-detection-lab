@@ -75,7 +75,6 @@ splunk-detection-lab/
 ├── setup/              lab build guide, inputs.conf, troubleshooting log
 ├── detections/         one folder per technique (README, SPL, Sigma, screenshots)
 │   └── _drafts/        written but not yet validated
-├── dashboards/         Splunk dashboard (Simple XML)
 ├── incident-report/    SOC-style write-up built from the lab events
 └── docs/               architecture, screenshot checklist, publishing guide, lessons learned
 ```
