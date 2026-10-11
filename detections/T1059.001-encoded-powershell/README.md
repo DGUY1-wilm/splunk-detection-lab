@@ -30,11 +30,11 @@ This was a manual test, not an Atomic Red Team test. (The Atomic T1059.001 test 
 **How it was launched (Sysmon EID 1).** `powershell.exe` started from another PowerShell session, with `-encodedcommand` and the base64 string in the command line:
 
 <!-- RECAPTURE: the CommandLine column was cut off at the right edge. Zoom out so the full command line shows. -->
-![Sysmon encoded command](01-sysmon-encodedcommand.png)
+![Sysmon encoded command](../../screenshots/Detection%25202/01-sysmon-encodedcommand.png)
 
 **What it actually ran (event 4104).** Script block logging recorded the decoded text, `whoami`, one second after the process started. The ScriptBlock ID in the event can be used to pivot between related events:
 
-![Script block 4104](02-scriptblock-4104-decoded.png)
+![Script block 4104](../../screenshots/Detection%25202/02-scriptblock-4104-decoded.png)
 
 ## Detection logic
 
