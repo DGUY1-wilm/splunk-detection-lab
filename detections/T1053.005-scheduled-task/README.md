@@ -23,7 +23,6 @@ schtasks /create /tn LabTask /tr notepad.exe /sc daily /st 09:00
 The Atomic Red Team T1053.005 tests were reviewed but the evidence here comes from the manual task above. For reference, Atomic test 1 registers `T1053_005_OnLogon` and `T1053_005_OnStartup` tasks that launch `calc.exe`.
 
 <!-- TO CAPTURE: the schtasks command running in PowerShell -->
-![Attack executing](00-attack-run.png)
 
 ## Evidence
 
@@ -58,8 +57,6 @@ None observed beyond the test. In practice, software installers and updaters cre
 Settings are in [`../ALERTS.md`](../ALERTS.md).
 
 <!-- TO CAPTURE -->
-![Saved alert](02-saved-alert.png)
-![Alert triggered](03-alert-triggered.png)
 
 ## Cleanup
 
@@ -68,4 +65,3 @@ schtasks /delete /tn LabTask /f
 ```
 
 <!-- TO CAPTURE -->
-![Cleanup](04-cleanup.png)
