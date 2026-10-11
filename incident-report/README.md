@@ -71,10 +71,10 @@ Scheduled alerts have not yet been saved, so "would fire" is accurate until they
 
 <!-- Reuse the screenshots from the detection folders; adjust paths if you rename them. -->
 
-![Accounts created](../detections/T1136.001-create-account/03-security-4720-account-created.png)
+![Accounts created](../screenshots/Detection%25201/03-security-4720-account-created.png)
 
-![Encoded PowerShell](../detections/T1059.001-encoded-powershell/01-sysmon-encodedcommand.png)
+![Encoded PowerShell](../screenshots/Detection%25202/01-sysmon-encodedcommand.png)
 
-![Scheduled task](../detections/T1053.005-scheduled-task/01-sysmon-schtasks-create.png)
+![Scheduled task](../screenshots/Detection%25203/01-sysmon-schtasks-create.png)
 
-![Failed logon burst](../detections/T1110-brute-force/03-threshold-search-4625.png)
+![Failed logon burst](../screenshots/Detection%25206/03-threshold-search-4625.png)
