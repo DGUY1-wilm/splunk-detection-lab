@@ -91,10 +91,14 @@ All attack simulations ran in an isolated lab on virtual machines I own, on a ho
 
 - [x] Log pipeline working (Sysmon, Security, PowerShell into Splunk)
 - [x] 4 detections validated with evidence
-- [ ] Save scheduled alerts and capture them firing (do this inside the 60-day trial window)
-- [ ] Build and test the dashboard
-- [ ] Validate the 2 draft detections
-- [ ] Add more detections (LOLBins, credential access, network-based)
+- [x] Save scheduled alerts and capture them firing (do this inside the 60-day trial window)
+- [x] Build and test the dashboard
+- [x] Validate the 2 draft detections
+- [x] Add more detections (LOLBins, credential access, network-based)
+
+##Will Update as I progress through the lab: SOC Detection Overview Dashboard
+
+![SOC Detection Overview](dashboards/soc-detection-overview.png)
 
 
 ## Author
