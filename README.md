@@ -96,7 +96,7 @@ All attack simulations ran in an isolated lab on virtual machines I own, on a ho
 - [x] Validate the 2 draft detections
 - [x] Add more detections (LOLBins, credential access, network-based)
 
-##Will Update as I progress through the lab: SOC Detection Overview Dashboard
+## Will Update as I progress through the lab: SOC Detection Overview Dashboard
 
 ![SOC Detection Overview](dashboards/soc-detection-overview.png)
 
